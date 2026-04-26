@@ -19,11 +19,11 @@ export function SiteFooter() {
         <div>
           <div className="eyebrow mb-4">Practice</div>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/practice/commercial-corporate" className="hover:text-primary">Commercial &amp; Corporate</Link></li>
-            <li><Link to="/practice/civil" className="hover:text-primary">Civil Litigation</Link></li>
-            <li><Link to="/practice/real-estate" className="hover:text-primary">Real Estate</Link></li>
-            <li><Link to="/practice/finance-tax" className="hover:text-primary">Finance &amp; Tax</Link></li>
-            <li><Link to="/practice/immigration" className="hover:text-primary">Immigration</Link></li>
+            <li><Link to="/practice/$slug" params={{ slug: "commercial-corporate" }} className="hover:text-primary">Commercial &amp; Corporate</Link></li>
+            <li><Link to="/practice/$slug" params={{ slug: "civil" }} className="hover:text-primary">Civil Litigation</Link></li>
+            <li><Link to="/practice/$slug" params={{ slug: "real-estate" }} className="hover:text-primary">Real Estate</Link></li>
+            <li><Link to="/practice/$slug" params={{ slug: "finance-tax" }} className="hover:text-primary">Finance &amp; Tax</Link></li>
+            <li><Link to="/practice/$slug" params={{ slug: "immigration" }} className="hover:text-primary">Immigration</Link></li>
           </ul>
         </div>
 
