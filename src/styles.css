@@ -2,6 +2,8 @@
 @source "../src";
 @import "tw-animate-css";
 
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap");
+
 @custom-variant dark (&:is(.dark *));
 
 /*
@@ -62,26 +64,27 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  /* Editorial law firm palette: warm ivory paper, charcoal ink, burgundy accent */
+  --radius: 0.25rem;
+  --background: oklch(0.971 0.012 85);            /* #F8F5F0 ivory */
+  --foreground: oklch(0.21 0.01 60);              /* #1f1d1a near-black */
+  --card: oklch(0.985 0.008 85);
+  --card-foreground: oklch(0.21 0.01 60);
+  --popover: oklch(0.985 0.008 85);
+  --popover-foreground: oklch(0.21 0.01 60);
+  --primary: oklch(0.43 0.13 25);                 /* #8C3A3A burgundy */
+  --primary-foreground: oklch(0.971 0.012 85);
+  --secondary: oklch(0.93 0.013 80);              /* warm stone */
+  --secondary-foreground: oklch(0.25 0.01 60);
+  --muted: oklch(0.93 0.013 80);
+  --muted-foreground: oklch(0.46 0.012 70);       /* #6b6760 */
+  --accent: oklch(0.43 0.13 25);
+  --accent-foreground: oklch(0.971 0.012 85);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.85 0.01 70);
+  --input: oklch(0.88 0.012 75);
+  --ring: oklch(0.43 0.13 25);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
