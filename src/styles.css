@@ -22,6 +22,8 @@
 @theme inline {
   --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
   --radius-sm: calc(var(--radius) - 2px);
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) + 2px);
@@ -65,27 +67,31 @@
 }
 
 :root {
-  /* Editorial law firm palette: warm ivory paper, charcoal ink, burgundy accent */
-  --radius: 0.25rem;
-  --background: oklch(0.971 0.012 85);            /* #F8F5F0 ivory */
-  --foreground: oklch(0.21 0.01 60);              /* #1f1d1a near-black */
-  --card: oklch(0.985 0.008 85);
-  --card-foreground: oklch(0.21 0.01 60);
-  --popover: oklch(0.985 0.008 85);
-  --popover-foreground: oklch(0.21 0.01 60);
-  --primary: oklch(0.43 0.13 25);                 /* #8C3A3A burgundy */
-  --primary-foreground: oklch(0.971 0.012 85);
-  --secondary: oklch(0.93 0.013 80);              /* warm stone */
-  --secondary-foreground: oklch(0.25 0.01 60);
-  --muted: oklch(0.93 0.013 80);
-  --muted-foreground: oklch(0.46 0.012 70);       /* #6b6760 */
-  --accent: oklch(0.43 0.13 25);
-  --accent-foreground: oklch(0.971 0.012 85);
+  /* Modern law-tech palette: near-white paper, deep ink, desaturated burgundy accent */
+  --radius: 0.75rem;
+  --background: oklch(0.985 0.004 85);            /* near-white #FAFAF7 */
+  --foreground: oklch(0.17 0.012 60);              /* deep ink */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.17 0.012 60);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.17 0.012 60);
+  --primary: oklch(0.42 0.11 22);                  /* refined burgundy */
+  --primary-foreground: oklch(0.985 0.004 85);
+  --secondary: oklch(0.955 0.008 80);              /* pale stone */
+  --secondary-foreground: oklch(0.22 0.01 60);
+  --muted: oklch(0.955 0.008 80);
+  --muted-foreground: oklch(0.48 0.012 70);
+  --accent: oklch(0.42 0.11 22);
+  --accent-foreground: oklch(0.985 0.004 85);
+  --ink: oklch(0.15 0.012 60);
+  --ink-foreground: oklch(0.97 0.005 85);
+  --shadow-card: 0 1px 2px 0 rgb(0 0 0 / 0.03), 0 8px 24px -8px rgb(0 0 0 / 0.06);
+  --shadow-lift: 0 2px 4px 0 rgb(0 0 0 / 0.04), 0 16px 40px -12px rgb(0 0 0 / 0.10);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.85 0.01 70);
-  --input: oklch(0.88 0.012 75);
-  --ring: oklch(0.43 0.13 25);
+  --border: oklch(0.9 0.006 75);
+  --input: oklch(0.92 0.008 75);
+  --ring: oklch(0.42 0.11 22);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -154,9 +160,16 @@
     text-rendering: optimizeLegibility;
   }
 
-  h1, h2, h3, h4, .font-serif {
+  h1, h2, h3, h4 {
+    font-family: var(--font-sans);
+    letter-spacing: -0.025em;
+    font-weight: 600;
+  }
+
+  .font-serif {
     font-family: var(--font-serif);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
+    font-weight: 500;
   }
 
   ::selection {
@@ -178,5 +191,58 @@
   .rule {
     height: 1px;
     background-color: var(--border);
+  }
+
+  .card-soft {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .card-soft:hover {
+    box-shadow: var(--shadow-lift);
+    transform: translateY(-2px);
+  }
+
+  .story-link {
+    position: relative;
+    display: inline-block;
+  }
+  .story-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s ease;
+  }
+  .story-link:hover::after,
+  .story-link[data-active="true"]::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
   }
 }
