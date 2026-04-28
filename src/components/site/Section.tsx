@@ -11,7 +11,7 @@ export function Section({
   bare?: boolean;
 }) {
   return (
-    <section className={cn(bare ? "" : "py-20 lg:py-28", className)}>
+    <section className={cn(bare ? "" : "py-12 md:py-16 lg:py-20", className)}>
       <div className="container mx-auto px-6 lg:px-10">{children}</div>
     </section>
   );
