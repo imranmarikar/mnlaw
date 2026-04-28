@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, Menu, X, Phone, Mail, MapPin } from "lucide-react";
+import logo from "@/assets/mn-law-logo.png";
 
 const links = [
   { to: "/", label: "Home" },
