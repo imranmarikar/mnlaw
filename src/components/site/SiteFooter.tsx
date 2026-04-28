@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, MapPin, Phone, Mail, Clock } from "lucide-react";
+import logoMark from "@/assets/mn-law-mark.png";
 
 export function SiteFooter() {
   return (
@@ -51,9 +52,9 @@ export function SiteFooter() {
       <div className="container mx-auto grid gap-10 px-6 py-16 lg:grid-cols-12 lg:px-10">
         <div className="lg:col-span-4">
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-md bg-white/5 font-serif text-base font-semibold text-gold ring-1 ring-gold/40">
-              MN
-            </span>
+            <div className="flex h-14 w-14 items-center justify-center rounded-md bg-white/95 p-1.5 ring-1 ring-gold/40">
+              <img src={logoMark} alt="MN Law Chambers" className="h-full w-full object-contain" />
+            </div>
             <div className="flex flex-col leading-tight">
               <span className="text-base font-semibold tracking-tight">
                 MN Law Chambers
