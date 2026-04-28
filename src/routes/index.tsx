@@ -123,7 +123,7 @@ function HomePage() {
           }}
         />
 
-        <div className="container relative mx-auto px-6 pb-16 pt-14 lg:px-10 lg:pb-24 lg:pt-24">
+        <div className="container relative mx-auto px-5 pb-14 pt-12 md:px-6 md:pb-20 md:pt-20 lg:px-10 lg:pb-24 lg:pt-24">
           <div className="grid gap-10 lg:grid-cols-12">
             <div className="lg:col-span-8">
               <div className="flex items-center gap-3">
@@ -133,7 +133,7 @@ function HomePage() {
                 </span>
               </div>
 
-              <h1 className="mt-7 font-serif text-[2.75rem] leading-[1.02] tracking-tight text-ink-foreground text-balance md:text-6xl lg:text-[5.5rem]">
+              <h1 className="mt-7 font-serif text-[2.25rem] leading-[1.05] tracking-tight text-ink-foreground text-balance sm:text-5xl md:text-6xl lg:text-[5.5rem]">
                 Considered counsel for{" "}
                 <span className="italic text-gold">consequential</span> matters.
               </h1>
