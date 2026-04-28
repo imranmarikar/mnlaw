@@ -191,7 +191,7 @@ function HomePage() {
         {/* Bottom strip inside hero */}
         <div className="relative border-t border-white/10 bg-ink/80 backdrop-blur">
           <div className="container mx-auto flex flex-wrap items-center justify-between gap-4 px-6 py-4 text-[11px] uppercase tracking-[0.22em] text-ink-foreground/60 lg:px-10">
-            <span>Trusted by · Founders · Family offices · Banks · Boards · Investors</span>
+            <span>Trusted by founders · family offices · banks · boards · investors</span>
             <Link
               to="/team"
               className="inline-flex items-center gap-1.5 text-gold hover:brightness-125"
