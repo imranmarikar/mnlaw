@@ -61,12 +61,12 @@ export function SiteHeader() {
             : "border-b border-transparent bg-background"
         }`}
       >
-        <div className="container mx-auto flex h-18 items-center justify-between gap-6 px-6 py-3 lg:px-10">
-          <Link to="/" className="flex items-center" onClick={() => setOpen(false)} aria-label="MN Law Chambers — Home">
+        <div className="container mx-auto flex h-16 items-center justify-between gap-4 px-5 py-2.5 md:h-20 md:px-6 md:py-3 lg:px-10">
+          <Link to="/" className="flex items-center shrink-0" onClick={() => setOpen(false)} aria-label="MN Law Chambers — Home">
             <img
               src={logo}
               alt="MN Law Chambers"
-              className="h-10 w-auto md:h-12"
+              className="h-9 w-auto sm:h-10 md:h-12"
             />
           </Link>
 
@@ -103,7 +103,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="fixed inset-x-0 top-[72px] z-40 animate-[fade-in_0.2s_ease-out] border-t border-border bg-background md:hidden">
+        <div className="fixed inset-x-0 top-[64px] z-40 animate-[fade-in_0.2s_ease-out] border-t border-border bg-background md:hidden">
           <nav className="container mx-auto flex flex-col px-6 py-6">
             {links.map((l) => (
               <Link

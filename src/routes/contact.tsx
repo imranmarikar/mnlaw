@@ -78,7 +78,7 @@ function ContactPage() {
               Send enquiry
             </button>
             <p className="text-xs text-muted-foreground">
-              By sending an enquiry you acknowledge that no solicitor-client
+              By sending an enquiry you acknowledge that no attorney–client
               relationship is created until the firm formally accepts your
               instructions in writing.
             </p>
