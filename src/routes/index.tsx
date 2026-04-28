@@ -123,7 +123,7 @@ function HomePage() {
           }}
         />
 
-        <div className="container relative mx-auto px-6 pb-24 pt-20 lg:px-10 lg:pb-32 lg:pt-28">
+        <div className="container relative mx-auto px-6 pb-16 pt-14 lg:px-10 lg:pb-24 lg:pt-24">
           <div className="grid gap-10 lg:grid-cols-12">
             <div className="lg:col-span-8">
               <div className="flex items-center gap-3">
@@ -204,7 +204,7 @@ function HomePage() {
       </section>
 
       {/* ============ AUDIENCE SIGNPOSTS ============ */}
-      <Section className="pb-0 pt-16 md:pt-20">
+      <Section className="pb-0 pt-12 md:pt-14">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3">
@@ -219,7 +219,7 @@ function HomePage() {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <div className="mt-8 grid gap-5 md:grid-cols-3 md:mt-10">
           {audiences.map(({ icon: Icon, title, body, slug, cta }) => (
             <Link
               key={title}
@@ -273,7 +273,7 @@ function HomePage() {
           </Link>
         </div>
 
-        <div className="mt-12 reveal">
+        <div className="mt-8 md:mt-10 reveal">
           <PracticeGrid />
         </div>
       </Section>
@@ -364,7 +364,7 @@ function HomePage() {
       </Section>
 
       {/* ============ INSIGHTS ============ */}
-      <Section className="border-t border-border pt-20">
+      <Section className="border-t border-border pt-14 md:pt-16">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3">
@@ -390,7 +390,7 @@ function HomePage() {
           </Link>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <div className="mt-8 md:mt-10 grid gap-5 md:grid-cols-3">
           {insights.map((post) => (
             <article
               key={post.title}
