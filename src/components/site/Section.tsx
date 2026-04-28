@@ -12,7 +12,7 @@ export function Section({
 }) {
   return (
     <section className={cn(bare ? "" : "py-12 md:py-16 lg:py-20", className)}>
-      <div className="container mx-auto px-6 lg:px-10">{children}</div>
+      <div className="container mx-auto px-5 md:px-6 lg:px-10">{children}</div>
     </section>
   );
 }
