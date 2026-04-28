@@ -4,7 +4,7 @@ import logoMark from "@/assets/mn-law-mark.png";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 bg-ink text-ink-foreground">
+    <footer className="mt-16 bg-ink text-ink-foreground md:mt-20">
       {/* CTA band */}
       <div className="relative overflow-hidden border-b border-white/10">
         <div
@@ -14,7 +14,7 @@ export function SiteFooter() {
               "radial-gradient(ellipse at 80% 50%, var(--gold) 0, transparent 55%)",
           }}
         />
-        <div className="container relative mx-auto grid gap-10 px-6 py-20 lg:grid-cols-12 lg:px-10">
+        <div className="container relative mx-auto grid gap-8 px-6 py-12 md:py-16 lg:grid-cols-12 lg:gap-10 lg:px-10 lg:py-20">
           <div className="lg:col-span-7">
             <div className="flex items-center gap-3">
               <span className="hairline-gold" />
@@ -49,7 +49,7 @@ export function SiteFooter() {
       </div>
 
       {/* Columns */}
-      <div className="container mx-auto grid gap-10 px-6 py-16 lg:grid-cols-12 lg:px-10">
+      <div className="container mx-auto grid gap-10 px-6 py-12 md:py-16 lg:grid-cols-12 lg:px-10">
         <div className="lg:col-span-4">
           <div className="flex items-center gap-3">
             <div className="flex h-14 w-14 items-center justify-center rounded-md bg-white/95 p-1.5 ring-1 ring-gold/40">
