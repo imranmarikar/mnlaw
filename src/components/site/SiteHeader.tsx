@@ -62,18 +62,12 @@ export function SiteHeader() {
         }`}
       >
         <div className="container mx-auto flex h-18 items-center justify-between gap-6 px-6 py-3 lg:px-10">
-          <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-            <span className="flex h-10 w-10 items-center justify-center rounded-md bg-ink font-serif text-base font-semibold text-gold ring-1 ring-gold/40">
-              MN
-            </span>
-            <div className="flex flex-col leading-tight">
-              <span className="text-[15px] font-semibold tracking-tight text-foreground">
-                MN Law Chambers
-              </span>
-              <span className="text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
-                Attorneys-at-Law · Colombo
-              </span>
-            </div>
+          <Link to="/" className="flex items-center" onClick={() => setOpen(false)} aria-label="MN Law Chambers — Home">
+            <img
+              src={logo}
+              alt="MN Law Chambers"
+              className="h-10 w-auto md:h-12"
+            />
           </Link>
 
           <nav className="hidden items-center gap-9 md:flex">
