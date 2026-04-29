@@ -143,6 +143,26 @@ function ContactPage() {
           </aside>
         </div>
       </Section>
+
+      <Section className="pt-0">
+        <Eyebrow>Locate us</Eyebrow>
+        <h2 className="mt-4 max-w-2xl font-serif text-3xl font-medium tracking-tight md:text-4xl">
+          Find our chambers in Colombo.
+        </h2>
+        <div className="mt-8 overflow-hidden border border-border shadow-sm">
+          <iframe
+            title="MN Law Chambers — Colombo"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.6098518921576!2d79.86023159999999!3d6.9371449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae259425dd7c26b%3A0x77f8e4673f294af1!2sMN%20Law%20Chambers!5e0!3m2!1sen!2slk!4v1777436759649!5m2!1sen!2slk"
+            width="100%"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="block h-[360px] w-full md:h-[480px]"
+          />
+        </div>
+      </Section>
     </>
   );
 }
