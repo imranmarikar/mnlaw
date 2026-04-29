@@ -90,7 +90,9 @@ function ContactPage() {
               <Eyebrow>Reach us</Eyebrow>
               <ul className="mt-6 space-y-5">
                 <ContactRow icon={<MapPin className="h-4 w-4" />} label="Office">
-                  Colombo, Sri Lanka
+                  MN Law Chambers
+                  <br />
+                  Colombo 03, Sri Lanka
                 </ContactRow>
                 <ContactRow icon={<Phone className="h-4 w-4" />} label="Telephone">
                   <a href="tel:+94776992504" className="hover:text-primary">
