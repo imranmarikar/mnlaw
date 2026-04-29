@@ -106,7 +106,7 @@ export function SiteFooter() {
           <ul className="mt-5 space-y-3 text-sm text-ink-foreground/80">
             <li className="flex items-start gap-3">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold/80" />
-              <span>Colombo 07, Sri Lanka</span>
+              <span>MN Law Chambers<br />Colombo 03, Sri Lanka</span>
             </li>
             <li className="flex items-start gap-3">
               <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold/80" />
