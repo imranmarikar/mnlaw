@@ -107,23 +107,77 @@ function HomePage() {
     <>
       {/* ============ HERO — dark cinematic ============ */}
       <section className="relative isolate overflow-hidden bg-ink text-ink-foreground">
+        {/* Background photo */}
         <div className="absolute inset-0 overflow-hidden">
           <img
             src={libraryImage}
             alt="Warmly lit antique law library with leather-bound books"
             width={1536}
             height={1536}
-            className="absolute inset-0 h-full w-full object-cover opacity-40 animate-hero-zoom"
+            className="absolute inset-0 h-full w-full object-cover opacity-35 animate-hero-zoom"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/40" />
+
+        {/* Ink gradient wash */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/92 to-ink/45" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/30 via-transparent to-ink/70" />
+
+        {/* Drifting grid overlay */}
         <div
-          className="pointer-events-none absolute inset-0 opacity-20 animate-hero-glow"
+          className="pointer-events-none absolute inset-0 opacity-[0.18] animate-grid-drift mix-blend-overlay"
           style={{
             backgroundImage:
-              "radial-gradient(ellipse at 80% 20%, var(--gold) 0%, transparent 55%)",
+              "linear-gradient(color-mix(in oklab, var(--gold) 35%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--gold) 35%, transparent) 1px, transparent 1px)",
+            backgroundSize: "80px 80px",
+            maskImage:
+              "radial-gradient(ellipse at 70% 40%, black 0%, transparent 70%)",
           }}
         />
+
+        {/* Floating gold orbs */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div
+            className="absolute -top-32 -left-24 h-[420px] w-[420px] rounded-full opacity-50 blur-3xl animate-orb-a"
+            style={{
+              background:
+                "radial-gradient(circle, color-mix(in oklab, var(--gold) 55%, transparent) 0%, transparent 65%)",
+            }}
+          />
+          <div
+            className="absolute top-1/3 right-[-120px] h-[520px] w-[520px] rounded-full opacity-45 blur-3xl animate-orb-b"
+            style={{
+              background:
+                "radial-gradient(circle, color-mix(in oklab, var(--primary) 70%, transparent) 0%, transparent 65%)",
+            }}
+          />
+          <div
+            className="absolute bottom-[-180px] left-1/3 h-[380px] w-[380px] rounded-full opacity-35 blur-3xl animate-orb-c"
+            style={{
+              background:
+                "radial-gradient(circle, color-mix(in oklab, var(--gold) 45%, transparent) 0%, transparent 65%)",
+            }}
+          />
+        </div>
+
+        {/* Pulsing rings — subtle "scales" pulse on the right */}
+        <div className="pointer-events-none absolute right-[8%] top-1/2 hidden -translate-y-1/2 lg:block">
+          <div className="relative h-[360px] w-[360px]">
+            {[0, 1, 2].map((i) => (
+              <div
+                key={i}
+                className={`absolute inset-0 rounded-full border border-gold/40 ${
+                  i === 0
+                    ? "animate-ring-pulse"
+                    : i === 1
+                      ? "animate-ring-pulse-delay"
+                      : "animate-ring-pulse-delay-2"
+                }`}
+              />
+            ))}
+            <div className="absolute inset-[35%] rounded-full bg-gold/20 blur-2xl" />
+          </div>
+        </div>
+
         {/* Slow shimmer sweep */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div
@@ -147,11 +201,16 @@ function HomePage() {
                 <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-gold">
                   Colombo · Sri Lanka · Est. 2009
                 </span>
+                <span className="ml-1 inline-block h-3 w-[2px] bg-gold animate-caret" />
               </div>
 
               <h1 className="mt-7 font-serif text-[2.25rem] leading-[1.05] tracking-tight text-ink-foreground text-balance sm:text-5xl md:text-6xl lg:text-[5.5rem] animate-rise" style={{ animationDelay: "0.25s", animationFillMode: "both" }}>
                 Considered counsel for{" "}
-                <span className="italic text-gold">consequential</span> matters.
+                <span className="relative inline-block italic text-gold">
+                  consequential
+                  <span className="absolute -bottom-1 left-0 h-[3px] w-full origin-left bg-gold/70 animate-accent-underline" />
+                </span>{" "}
+                matters.
               </h1>
 
               <p className="mt-7 max-w-[58ch] text-base leading-relaxed text-ink-foreground/75 md:text-lg animate-rise" style={{ animationDelay: "0.45s", animationFillMode: "both" }}>
