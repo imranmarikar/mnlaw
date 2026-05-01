@@ -142,26 +142,26 @@ function HomePage() {
         <div className="container relative mx-auto px-5 pb-14 pt-12 md:px-6 md:pb-20 md:pt-20 lg:px-10 lg:pb-24 lg:pt-24">
           <div className="grid gap-10 lg:grid-cols-12">
             <div className="lg:col-span-8">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 animate-rise" style={{ animationDelay: "0.1s", animationFillMode: "both" }}>
                 <span className="hairline-gold" />
                 <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-gold">
                   Colombo · Sri Lanka · Est. 2009
                 </span>
               </div>
 
-              <h1 className="mt-7 font-serif text-[2.25rem] leading-[1.05] tracking-tight text-ink-foreground text-balance sm:text-5xl md:text-6xl lg:text-[5.5rem]">
+              <h1 className="mt-7 font-serif text-[2.25rem] leading-[1.05] tracking-tight text-ink-foreground text-balance sm:text-5xl md:text-6xl lg:text-[5.5rem] animate-rise" style={{ animationDelay: "0.25s", animationFillMode: "both" }}>
                 Considered counsel for{" "}
                 <span className="italic text-gold">consequential</span> matters.
               </h1>
 
-              <p className="mt-7 max-w-[58ch] text-base leading-relaxed text-ink-foreground/75 md:text-lg">
+              <p className="mt-7 max-w-[58ch] text-base leading-relaxed text-ink-foreground/75 md:text-lg animate-rise" style={{ animationDelay: "0.45s", animationFillMode: "both" }}>
                 A Sri Lankan law firm advising founders, families, investors and
                 institutions — with the clarity that comes from caring about the
                 outcome. Fifteen years of partner-led work in commercial, civil,
                 real estate, finance, and immigration law.
               </p>
 
-              <div className="mt-10 flex flex-wrap items-center gap-3">
+              <div className="mt-10 flex flex-wrap items-center gap-3 animate-rise" style={{ animationDelay: "0.6s", animationFillMode: "both" }}>
                 <Link
                   to="/contact"
                   className="group inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-ink transition-all hover:brightness-110"
@@ -186,10 +186,11 @@ function HomePage() {
                   { k: "15+", v: "Years practising" },
                   { k: "5", v: "Core practice areas" },
                   { k: "LK", v: "Jurisdiction" },
-                ].map((s) => (
+                ].map((s, i) => (
                   <div
                     key={s.v}
-                    className="rounded-xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm"
+                    className="rounded-xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm animate-rise"
+                    style={{ animationDelay: `${0.75 + i * 0.1}s`, animationFillMode: "both" }}
                   >
                     <div className="font-serif text-3xl text-gold lg:text-4xl">
                       {s.k}
