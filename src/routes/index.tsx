@@ -107,21 +107,37 @@ function HomePage() {
     <>
       {/* ============ HERO — dark cinematic ============ */}
       <section className="relative isolate overflow-hidden bg-ink text-ink-foreground">
-        <img
-          src={libraryImage}
-          alt="Warmly lit antique law library with leather-bound books"
-          width={1536}
-          height={1536}
-          className="absolute inset-0 h-full w-full object-cover opacity-40"
-        />
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src={libraryImage}
+            alt="Warmly lit antique law library with leather-bound books"
+            width={1536}
+            height={1536}
+            className="absolute inset-0 h-full w-full object-cover opacity-40 animate-hero-zoom"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/40" />
         <div
-          className="pointer-events-none absolute inset-0 opacity-20"
+          className="pointer-events-none absolute inset-0 opacity-20 animate-hero-glow"
           style={{
             backgroundImage:
               "radial-gradient(ellipse at 80% 20%, var(--gold) 0%, transparent 55%)",
           }}
         />
+        {/* Slow shimmer sweep */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div
+            className="absolute -inset-y-10 -left-1/3 w-1/3 animate-hero-shimmer"
+            style={{
+              background:
+                "linear-gradient(115deg, transparent 0%, color-mix(in oklab, var(--gold) 14%, transparent) 50%, transparent 100%)",
+            }}
+          />
+        </div>
+        {/* Top loading bar */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[2px] overflow-hidden">
+          <div className="h-full w-1/3 animate-hero-loadbar bg-gradient-to-r from-transparent via-gold to-transparent" />
+        </div>
 
         <div className="container relative mx-auto px-5 pb-14 pt-12 md:px-6 md:pb-20 md:pt-20 lg:px-10 lg:pb-24 lg:pt-24">
           <div className="grid gap-10 lg:grid-cols-12">
