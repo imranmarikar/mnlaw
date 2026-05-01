@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Mail, MapPin, Phone, MessageCircle } from "lucide-react";
 import { Section, Eyebrow } from "@/components/site/Section";
+import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -25,16 +26,11 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   return (
     <>
-      <Section className="pt-16 pb-12 lg:pt-24">
-        <Eyebrow>Contact</Eyebrow>
-        <h1 className="mt-6 max-w-4xl font-serif text-5xl font-medium leading-[1.05] text-balance md:text-6xl lg:text-7xl">
-          Begin a conversation in confidence.
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-          Initial consultations are conducted personally by a partner. We aim
-          to respond to enquiries within one business day.
-        </p>
-      </Section>
+      <PageHero
+        eyebrow="Contact"
+        title="Begin a conversation in confidence."
+        intro="Initial consultations are conducted personally by a partner. We aim to respond to enquiries within one business day."
+      />
 
       <Section className="pt-0">
         <div className="grid gap-12 lg:grid-cols-12">

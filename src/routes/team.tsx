@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Phone, Mail } from "lucide-react";
 import { Section } from "@/components/site/Section";
+import { PageHero } from "@/components/site/PageHero";
 import naleem from "@/assets/team/naleem.jpg";
 import kashyapa from "@/assets/team/kashyapa.jpg";
 import sahran from "@/assets/team/sahran.jpg";
@@ -113,25 +114,12 @@ const staff: Member[] = [
 function TeamPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="border-b border-border bg-ink text-ink-foreground">
-        <div className="container mx-auto px-6 py-14 md:py-20 lg:px-10 lg:py-24">
-          <div className="flex items-center gap-3">
-            <span className="hairline-gold" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-gold">
-              Our Team
-            </span>
-          </div>
-          <h1 className="mt-6 max-w-4xl font-serif text-4xl leading-[1.05] tracking-tight text-balance md:text-6xl lg:text-7xl">
-            The lawyers and people behind MN Law Chambers.
-          </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-foreground/75 md:text-lg">
-            A dynamic team of partners and consultants, blending specialised
-            industry knowledge with deep expertise across civil, criminal,
-            commercial, conveyancing, immigration and labour law.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        variant="ink"
+        eyebrow="Our Team"
+        title="The lawyers and people behind MN Law Chambers."
+        intro="A dynamic team of partners and consultants, blending specialised industry knowledge with deep expertise across civil, criminal, commercial, conveyancing, immigration and labour law."
+      />
 
       {/* Partners — large profile containers */}
       <Section className="pt-12 md:pt-16">
