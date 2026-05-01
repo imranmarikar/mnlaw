@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Section, Eyebrow } from "@/components/site/Section";
+import { PageHero } from "@/components/site/PageHero";
 import aboutImage from "@/assets/about-lawbook.jpg";
 
 export const Route = createFileRoute("/about")({
@@ -25,12 +26,11 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   return (
     <>
-      <Section className="pt-16 pb-12 lg:pt-24">
-        <Eyebrow>The Firm</Eyebrow>
-        <h1 className="mt-6 max-w-4xl font-serif text-5xl font-medium leading-[1.05] text-balance md:text-6xl lg:text-7xl">
-          An independent firm with a quiet sense of purpose.
-        </h1>
-      </Section>
+      <PageHero
+        eyebrow="The Firm"
+        title="An independent firm with a quiet sense of purpose."
+        intro="Established in 2009 in Colombo — a partner-led practice built on referrals, discretion and clear advice."
+      />
 
       <Section className="pt-0">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
