@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowRight, Check } from "lucide-react";
 import { Section, Eyebrow } from "@/components/site/Section";
+import { PageHero } from "@/components/site/PageHero";
 import { getPracticeArea, practiceAreas } from "@/lib/practice-areas";
 
 export const Route = createFileRoute("/practice/$slug")({
@@ -40,27 +41,18 @@ function PracticeDetail() {
 
   return (
     <>
-      <Section className="pt-12 pb-10 lg:pt-16">
+      <PageHero
+        eyebrow={`0${idx + 1} · Practice`}
+        title={area.title}
+        intro={area.short}
+      >
         <Link
           to="/practice"
-          className="text-xs uppercase tracking-widest text-muted-foreground hover:text-primary"
+          className="mt-8 inline-block text-xs uppercase tracking-widest text-muted-foreground hover:text-primary"
         >
-          ← Practice Areas
+          ← All practice areas
         </Link>
-        <div className="mt-8 grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <Eyebrow>0{idx + 1} · Practice</Eyebrow>
-            <h1 className="mt-6 font-serif text-5xl font-medium leading-[1.05] text-balance md:text-6xl lg:text-7xl">
-              {area.title}
-            </h1>
-          </div>
-          <div className="lg:col-span-5 lg:self-end">
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              {area.short}
-            </p>
-          </div>
-        </div>
-      </Section>
+      </PageHero>
 
       <Section className="border-t border-border pt-16">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
