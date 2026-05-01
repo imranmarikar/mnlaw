@@ -308,13 +308,83 @@
     animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
+  /* Floating orbs — slow, parallax-like drift */
+  @keyframes orb-drift-a {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50%      { transform: translate3d(40px, -30px, 0) scale(1.08); }
+  }
+  @keyframes orb-drift-b {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50%      { transform: translate3d(-50px, 20px, 0) scale(1.12); }
+  }
+  @keyframes orb-drift-c {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50%      { transform: translate3d(25px, 40px, 0) scale(0.94); }
+  }
+  .animate-orb-a { animation: orb-drift-a 14s ease-in-out infinite; }
+  .animate-orb-b { animation: orb-drift-b 18s ease-in-out infinite; }
+  .animate-orb-c { animation: orb-drift-c 22s ease-in-out infinite; }
+
+  /* Slowly drifting grid overlay */
+  @keyframes grid-drift {
+    0%   { background-position: 0 0; }
+    100% { background-position: 80px 80px; }
+  }
+  .animate-grid-drift {
+    animation: grid-drift 30s linear infinite;
+  }
+
+  /* Pulsing concentric ring (scales-of-justice vibe) */
+  @keyframes ring-pulse {
+    0%   { transform: scale(0.85); opacity: 0.55; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+  .animate-ring-pulse {
+    animation: ring-pulse 5s ease-out infinite;
+  }
+  .animate-ring-pulse-delay {
+    animation: ring-pulse 5s ease-out infinite;
+    animation-delay: 1.6s;
+  }
+  .animate-ring-pulse-delay-2 {
+    animation: ring-pulse 5s ease-out infinite;
+    animation-delay: 3.2s;
+  }
+
+  /* Animated underline sweep on accent word */
+  @keyframes accent-underline {
+    0%   { transform: scaleX(0); transform-origin: left; }
+    55%  { transform: scaleX(1); transform-origin: left; }
+    56%  { transform-origin: right; }
+    100% { transform: scaleX(0); transform-origin: right; }
+  }
+  .animate-accent-underline {
+    animation: accent-underline 6s ease-in-out 1.4s infinite;
+  }
+
+  /* Soft caret blink to suggest typewriter */
+  @keyframes caret-blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+  .animate-caret { animation: caret-blink 1.1s steps(2) infinite; }
+
   @media (prefers-reduced-motion: reduce) {
     .animate-hero-zoom,
     .animate-hero-glow,
     .animate-hero-shimmer,
     .animate-hero-loadbar,
     .animate-rise,
-    .animate-marquee {
+    .animate-marquee,
+    .animate-orb-a,
+    .animate-orb-b,
+    .animate-orb-c,
+    .animate-grid-drift,
+    .animate-ring-pulse,
+    .animate-ring-pulse-delay,
+    .animate-ring-pulse-delay-2,
+    .animate-accent-underline,
+    .animate-caret {
       animation: none !important;
     }
   }
