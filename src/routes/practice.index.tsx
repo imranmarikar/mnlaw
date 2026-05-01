@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Section, Eyebrow } from "@/components/site/Section";
+import { PageHero } from "@/components/site/PageHero";
 import { practiceAreas } from "@/lib/practice-areas";
 
 export const Route = createFileRoute("/practice/")({
@@ -26,17 +27,11 @@ export const Route = createFileRoute("/practice/")({
 function PracticeIndex() {
   return (
     <>
-      <Section className="pt-16 pb-12 lg:pt-24">
-        <Eyebrow>Practice Areas</Eyebrow>
-        <h1 className="mt-6 max-w-4xl font-serif text-5xl font-medium leading-[1.05] text-balance md:text-6xl lg:text-7xl">
-          Five areas of practice. One standard of work.
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-          Our practice is intentionally broad enough to be useful across the
-          arc of a client's affairs, and narrow enough that we can be genuinely
-          good at what we do.
-        </p>
-      </Section>
+      <PageHero
+        eyebrow="Practice Areas"
+        title="Five areas of practice. One standard of work."
+        intro="Our practice is intentionally broad enough to be useful across the arc of a client's affairs, and narrow enough that we can be genuinely good at what we do."
+      />
 
       <Section className="pt-0">
         <div className="border-t border-border">
