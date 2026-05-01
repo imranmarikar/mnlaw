@@ -263,4 +263,59 @@
   .animate-marquee {
     animation: marquee 40s linear infinite;
   }
+
+  @keyframes hero-zoom {
+    0%   { transform: scale(1.08) translate3d(0, 0, 0); }
+    50%  { transform: scale(1.14) translate3d(-1.5%, -1%, 0); }
+    100% { transform: scale(1.08) translate3d(0, 0, 0); }
+  }
+  .animate-hero-zoom {
+    animation: hero-zoom 28s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @keyframes hero-glow {
+    0%, 100% { opacity: 0.16; }
+    50%      { opacity: 0.28; }
+  }
+  .animate-hero-glow {
+    animation: hero-glow 8s ease-in-out infinite;
+  }
+
+  @keyframes hero-shimmer {
+    0%   { transform: translateX(0) skewX(-12deg); }
+    100% { transform: translateX(500%) skewX(-12deg); }
+  }
+  .animate-hero-shimmer {
+    animation: hero-shimmer 9s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  @keyframes hero-loadbar {
+    0%   { transform: translateX(-120%); }
+    60%  { transform: translateX(420%); }
+    100% { transform: translateX(420%); }
+  }
+  .animate-hero-loadbar {
+    animation: hero-loadbar 2.4s cubic-bezier(0.4, 0, 0.2, 1) 0.2s 1 both;
+  }
+
+  @keyframes rise {
+    0%   { opacity: 0; transform: translateY(18px); filter: blur(4px); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+  }
+  .animate-rise {
+    animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-hero-zoom,
+    .animate-hero-glow,
+    .animate-hero-shimmer,
+    .animate-hero-loadbar,
+    .animate-rise,
+    .animate-marquee {
+      animation: none !important;
+    }
+  }
 }
