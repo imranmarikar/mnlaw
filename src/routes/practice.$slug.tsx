@@ -4,6 +4,19 @@ import { Section, Eyebrow } from "@/components/site/Section";
 import { PageHero } from "@/components/site/PageHero";
 import { getPracticeArea, practiceAreas } from "@/lib/practice-areas";
 
+const AREA_SERVED = [
+  { "@type": "Country", name: "Sri Lanka" },
+  { "@type": "Country", name: "United Kingdom" },
+  { "@type": "Country", name: "United States" },
+  { "@type": "Country", name: "Canada" },
+  { "@type": "Country", name: "Australia" },
+  { "@type": "Country", name: "United Arab Emirates" },
+  { "@type": "Country", name: "Singapore" },
+  { "@type": "Country", name: "India" },
+  { "@type": "Country", name: "Qatar" },
+  { "@type": "Country", name: "Saudi Arabia" },
+];
+
 export const Route = createFileRoute("/practice/$slug")({
   loader: ({ params }) => {
     const area = getPracticeArea(params.slug);
@@ -13,12 +26,54 @@ export const Route = createFileRoute("/practice/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) return {};
     const { area } = loaderData;
+    const url = `https://mnlawchambers.com/practice/${area.slug}`;
+    const legalServiceLd = {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      name: `${area.title} — MN Law Chambers`,
+      description: area.short,
+      url,
+      provider: {
+        "@type": "LegalService",
+        name: "MN Law Chambers",
+        url: "https://mnlawchambers.com",
+        telephone: "+94112300111",
+        email: "info@mnlawchambers.com",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "367, 2/2, 2nd Floor, Dam Street",
+          addressLocality: "Colombo 12",
+          addressCountry: "LK",
+        },
+      },
+      serviceType: area.title,
+      areaServed: AREA_SERVED,
+    };
+    const faqLd = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: area.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    };
     return {
       meta: [
         { title: `${area.title} — MN Law Chambers` },
         { name: "description", content: area.short },
         { property: "og:title", content: `${area.title} — MN Law Chambers` },
         { property: "og:description", content: area.short },
+      ],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(legalServiceLd),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(faqLd),
+        },
       ],
     };
   },
@@ -77,6 +132,28 @@ function PracticeDetail() {
         </div>
       </Section>
 
+      {/* Long-form practice content */}
+      <Section className="border-t border-border">
+        <div className="grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-3">
+            <Eyebrow>In depth</Eyebrow>
+            <h2 className="mt-4 font-serif text-2xl leading-tight tracking-tight md:text-3xl">
+              How this practice works at MN Law Chambers.
+            </h2>
+          </div>
+          <div className="space-y-6 lg:col-span-8 lg:col-start-5">
+            {area.longContent.map((p, i) => (
+              <p
+                key={i}
+                className="text-base leading-relaxed text-foreground/85 md:text-lg"
+              >
+                {p}
+              </p>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       <Section className="border-t border-border bg-foreground text-background">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-2">
@@ -86,6 +163,32 @@ function PracticeDetail() {
             <p className="font-serif text-3xl leading-snug text-balance md:text-4xl">
               {area.approach}
             </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* FAQs */}
+      <Section className="border-t border-border">
+        <div className="grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <Eyebrow>FAQs</Eyebrow>
+            <h2 className="mt-4 font-serif text-3xl leading-tight tracking-tight md:text-4xl">
+              Questions clients usually ask first.
+            </h2>
+          </div>
+          <div className="lg:col-span-7 lg:col-start-6">
+            <dl className="divide-y divide-border border-y border-border">
+              {area.faqs.map((f) => (
+                <div key={f.q} className="py-6">
+                  <dt className="font-serif text-lg leading-snug text-foreground md:text-xl">
+                    {f.q}
+                  </dt>
+                  <dd className="mt-3 text-base leading-relaxed text-muted-foreground">
+                    {f.a}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </Section>
