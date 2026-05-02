@@ -10,7 +10,6 @@ import {
   MapPin,
   Clock,
   Quote,
-  BookOpen,
 } from "lucide-react";
 import { Section } from "@/components/site/Section";
 import { StatsPanel } from "@/components/site/StatsPanel";
