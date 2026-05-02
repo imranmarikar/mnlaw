@@ -106,13 +106,18 @@ export function SiteFooter() {
           <ul className="mt-5 space-y-3 text-sm text-ink-foreground/80">
             <li className="flex items-start gap-3">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold/80" />
-              <span>MN Law Chambers<br />Colombo 03, Sri Lanka</span>
+              <span>MN Law Chambers<br />367, 2/2, 2nd Floor,<br />Dam Street, Colombo 12,<br />Sri Lanka</span>
             </li>
             <li className="flex items-start gap-3">
               <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold/80" />
-              <a href="tel:+94776992504" className="hover:text-gold">
-                +94 77 699 2504
-              </a>
+              <div className="flex flex-col gap-1">
+                <a href="tel:+94112300111" className="hover:text-gold">
+                  +94 11 230 0111
+                </a>
+                <a href="https://wa.me/94776992504" className="hover:text-gold">
+                  WhatsApp: +94 77 699 2504
+                </a>
+              </div>
             </li>
             <li className="flex items-start gap-3">
               <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold/80" />

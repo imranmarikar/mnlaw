@@ -88,11 +88,15 @@ function ContactPage() {
                 <ContactRow icon={<MapPin className="h-4 w-4" />} label="Office">
                   MN Law Chambers
                   <br />
-                  Colombo 03, Sri Lanka
+                  367, 2/2, 2nd Floor,
+                  <br />
+                  Dam Street, Colombo 12,
+                  <br />
+                  Sri Lanka
                 </ContactRow>
                 <ContactRow icon={<Phone className="h-4 w-4" />} label="Telephone">
-                  <a href="tel:+94776992504" className="hover:text-primary">
-                    +94 77 699 2504
+                  <a href="tel:+94112300111" className="hover:text-primary">
+                    +94 11 230 0111
                   </a>
                 </ContactRow>
                 <ContactRow icon={<Mail className="h-4 w-4" />} label="Email">
