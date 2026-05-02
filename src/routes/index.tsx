@@ -20,9 +20,6 @@ import heroImage from "@/assets/hero-courthouse.jpg";
 import libraryImage from "@/assets/hero-library.jpg";
 import aboutImage from "@/assets/about-lawbook.jpg";
 import officeImage from "@/assets/office-interior.jpg";
-import insight1 from "@/assets/insight-1.jpg";
-import insight2 from "@/assets/insight-2.jpg";
-import insight3 from "@/assets/insight-3.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -73,32 +70,6 @@ const audiences = [
   },
 ];
 
-const insights = [
-  {
-    tag: "Commercial",
-    date: "March 2026",
-    title: "Structuring a Sri Lankan subsidiary: five decisions founders get wrong",
-    excerpt:
-      "The BOI route isn't always the right route. A primer on entity choice, exchange control and cap-table hygiene.",
-    image: insight1,
-  },
-  {
-    tag: "Real Estate",
-    date: "February 2026",
-    title: "Condominium title vs. freehold: what overseas buyers need to know",
-    excerpt:
-      "Non-citizens can own apartments above the fourth floor — but the diligence trail is long. Here's the checklist.",
-    image: insight2,
-  },
-  {
-    tag: "Immigration",
-    date: "January 2026",
-    title: "Residency pathways for investors and retirees in 2026",
-    excerpt:
-      "Updated thresholds, processing times and the quiet programmes most lawyers don't mention.",
-    image: insight3,
-  },
-];
 
 function HomePage() {
   useReveal();
@@ -439,71 +410,6 @@ function HomePage() {
         </div>
       </Section>
 
-      {/* ============ INSIGHTS ============ */}
-      <Section className="border-t border-border pt-14 md:pt-16">
-        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-3">
-              <span className="hairline-gold" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
-                Insights
-              </span>
-            </div>
-            <h2 className="mt-4 font-serif text-3xl tracking-tight md:text-5xl">
-              Practical notes on Sri Lankan law.
-            </h2>
-            <p className="mt-4 max-w-xl text-muted-foreground">
-              Plain-language briefings written for the people actually making
-              decisions — founders, directors, property owners and families.
-            </p>
-          </div>
-          <Link
-            to="/about"
-            className="story-link inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-[0.16em] text-primary"
-          >
-            All insights
-            <ArrowUpRight className="h-4 w-4" />
-          </Link>
-        </div>
-
-        <div className="mt-8 md:mt-10 grid gap-5 md:grid-cols-3">
-          {insights.map((post) => (
-            <article
-              key={post.title}
-              className="reveal group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]"
-            >
-              <div className="aspect-[4/3] overflow-hidden bg-secondary">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  loading="lazy"
-                  width={1024}
-                  height={768}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-6">
-                <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-primary">
-                  <BookOpen className="h-3 w-3" />
-                  {post.tag}
-                  <span className="text-muted-foreground/60">·</span>
-                  <span className="text-muted-foreground">{post.date}</span>
-                </div>
-                <h3 className="mt-4 font-serif text-xl leading-tight tracking-tight text-foreground md:text-2xl">
-                  {post.title}
-                </h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                  {post.excerpt}
-                </p>
-                <div className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                  Read note
-                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </Section>
 
       {/* ============ QUOTE ============ */}
       <Section className="bg-secondary/40">
@@ -586,8 +492,8 @@ function HomePage() {
                 <div className="text-[10px] font-semibold uppercase tracking-[0.26em] text-gold">
                   Our office
                 </div>
-                <div className="mt-2 font-serif text-2xl">Colombo 07</div>
-                <div className="text-sm text-ink-foreground/70">Sri Lanka</div>
+                <div className="mt-2 font-serif text-2xl">Colombo 12</div>
+                <div className="text-sm text-ink-foreground/70">Dam Street, Sri Lanka</div>
               </div>
             </div>
 
@@ -596,17 +502,17 @@ function HomePage() {
                 {
                   icon: MapPin,
                   label: "Visit",
-                  lines: ["Colombo 07, Sri Lanka", "By appointment only"],
+                  lines: ["367, 2/2, 2nd Floor,", "Dam Street, Colombo 12, Sri Lanka"],
                 },
                 {
                   icon: Phone,
                   label: "Call",
-                  lines: ["+94 77 699 2504", "+94 11 000 0000"],
+                  lines: ["+94 11 230 0111", "WhatsApp: +94 77 699 2504"],
                 },
                 {
                   icon: Mail,
                   label: "Email",
-                  lines: ["info@mnlawchambers.com", "enquiries@mnlawchambers.com"],
+                  lines: ["info@mnlawchambers.com"],
                 },
                 {
                   icon: Clock,
