@@ -24,6 +24,65 @@ function NotFoundComponent() {
   );
 }
 
+const ORG_LD = {
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  name: "MN Law Chambers",
+  alternateName: "MN Law Chambers — Attorneys-at-Law",
+  description:
+    "A Sri Lankan law firm advising founders, families, investors and institutions on commercial, civil, real estate, finance and immigration matters since 2009.",
+  url: "https://mnlawchambers.com",
+  logo: "https://mnlawchambers.com/favicon.png",
+  image: "https://mnlawchambers.com/favicon.png",
+  telephone: "+94112300111",
+  email: "info@mnlawchambers.com",
+  priceRange: "$$",
+  foundingDate: "2009",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "367, 2/2, 2nd Floor, Dam Street",
+    addressLocality: "Colombo 12",
+    addressCountry: "LK",
+  },
+  geo: { "@type": "GeoCoordinates", latitude: 6.9371449, longitude: 79.8602316 },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "17:30",
+    },
+  ],
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+94112300111",
+      contactType: "office",
+      areaServed: ["LK", "GB", "US", "CA", "AU", "AE", "SG", "IN", "QA", "SA"],
+      availableLanguage: ["en", "si", "ta"],
+    },
+    {
+      "@type": "ContactPoint",
+      telephone: "+94776992504",
+      contactType: "WhatsApp",
+      areaServed: ["LK", "GB", "US", "CA", "AU", "AE", "SG", "IN", "QA", "SA"],
+      availableLanguage: ["en"],
+    },
+  ],
+  areaServed: [
+    { "@type": "Country", name: "Sri Lanka" },
+    { "@type": "Country", name: "United Kingdom" },
+    { "@type": "Country", name: "United States" },
+    { "@type": "Country", name: "Canada" },
+    { "@type": "Country", name: "Australia" },
+    { "@type": "Country", name: "United Arab Emirates" },
+    { "@type": "Country", name: "Singapore" },
+    { "@type": "Country", name: "India" },
+    { "@type": "Country", name: "Qatar" },
+    { "@type": "Country", name: "Saudi Arabia" },
+  ],
+};
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -43,6 +102,12 @@ export const Route = createRootRoute({
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
       { rel: "apple-touch-icon", href: "/favicon.png" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(ORG_LD),
+      },
     ],
   }),
   shellComponent: RootShell,
