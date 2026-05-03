@@ -94,6 +94,7 @@ export function SiteFooter() {
           <ul className="mt-5 space-y-2.5 text-sm text-ink-foreground/75">
             <li><Link to="/about" className="hover:text-gold">About</Link></li>
             <li><Link to="/team" className="hover:text-gold">Team</Link></li>
+            <li><Link to="/how-we-work" className="hover:text-gold">How we work</Link></li>
             <li><Link to="/practice" className="hover:text-gold">All practice</Link></li>
             <li><Link to="/contact" className="hover:text-gold">Contact</Link></li>
           </ul>
