@@ -1,13 +1,19 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { practiceAreas } from "@/lib/practice-areas";
-import practiceImage from "@/assets/practice-abstract.jpg";
-import officeImage from "@/assets/office-interior.jpg";
-import aboutImage from "@/assets/about-lawbook.jpg";
-import heroImage from "@/assets/hero-courthouse.jpg";
-import libraryImage from "@/assets/hero-library.jpg";
+import commercialImage from "@/assets/practice-commercial.png";
+import civilImage from "@/assets/practice-civil.png";
+import realEstateImage from "@/assets/practice-real-estate.png";
+import financeImage from "@/assets/practice-finance.png";
+import immigrationImage from "@/assets/practice-immigration.png";
 
-const images = [heroImage, practiceImage, aboutImage, officeImage, libraryImage];
+const imageBySlug: Record<string, string> = {
+  "commercial-corporate": commercialImage,
+  civil: civilImage,
+  "real-estate": realEstateImage,
+  "finance-tax": financeImage,
+  immigration: immigrationImage,
+};
 
 export function PracticeGrid() {
   return (
