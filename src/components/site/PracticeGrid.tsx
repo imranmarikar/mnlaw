@@ -28,7 +28,7 @@ export function PracticeGrid() {
           {/* Image — fixed, focused aspect; never tall on mobile or laptop */}
           <div className="relative aspect-[16/10] overflow-hidden">
             <img
-              src={images[i % images.length]}
+              src={imageBySlug[p.slug]}
               alt={p.title}
               loading="lazy"
               className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
