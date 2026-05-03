@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone, MessageCircle } from "lucide-react";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { PageHero } from "@/components/site/PageHero";
@@ -30,7 +30,16 @@ function ContactPage() {
         eyebrow="Contact"
         title="Begin a conversation in confidence."
         intro="Initial consultations are conducted personally by a partner. We aim to respond to enquiries within one business day."
-      />
+      >
+        <div className="mt-6">
+          <Link
+            to="/how-we-work"
+            className="inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
+          >
+            Before you write — read how we work →
+          </Link>
+        </div>
+      </PageHero>
 
       <Section className="pt-0">
         <div className="grid gap-12 lg:grid-cols-12">
