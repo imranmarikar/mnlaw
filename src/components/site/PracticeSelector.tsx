@@ -72,7 +72,7 @@ export function PracticeSelector() {
           <div className="aspect-[16/10] overflow-hidden bg-secondary">
             <img
               key={area.slug}
-              src={images[active % images.length]}
+              src={imageBySlug[area.slug]}
               alt={area.title}
               loading="lazy"
               width={1280}
