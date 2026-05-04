@@ -102,11 +102,6 @@ const consultants: Member[] = [
   },
 ];
 
-const staff: Member[] = [
-  { image: dayani, name: "Dayani Nandaseeli", role: "Manager, Administration" },
-  { image: nuzra, name: "Nuzra Yoonus", role: "Finance Controller" },
-  { image: kasun, name: "Kasun Mendis", role: "Office Staff" },
-];
 
 function TeamPage() {
   return (
