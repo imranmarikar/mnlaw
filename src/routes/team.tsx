@@ -8,9 +8,6 @@ import sahran from "@/assets/team/sahran.jpg";
 import shezza from "@/assets/team/shezza.jpg";
 import dinika from "@/assets/team/dinika.jpg";
 import shafi from "@/assets/team/shafi.png";
-import dayani from "@/assets/team/dayani.jpg";
-import nuzra from "@/assets/team/nuzra.jpg";
-import kasun from "@/assets/team/kasun.jpg";
 
 export const Route = createFileRoute("/team")({
   head: () => ({
@@ -105,11 +102,6 @@ const consultants: Member[] = [
   },
 ];
 
-const staff: Member[] = [
-  { image: dayani, name: "Dayani Nandaseeli", role: "Manager, Administration" },
-  { image: nuzra, name: "Nuzra Yoonus", role: "Finance Controller" },
-  { image: kasun, name: "Kasun Mendis", role: "Office Staff" },
-];
 
 function TeamPage() {
   return (
@@ -218,25 +210,6 @@ function TeamPage() {
         <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 md:mt-12">
           {consultants.map((m) => (
             <PersonCard key={m.name} m={m} />
-          ))}
-        </div>
-      </Section>
-
-      {/* Administrative & Support Staff */}
-      <Section className="pt-0">
-        <div className="flex items-center gap-3">
-          <span className="hairline-gold" />
-          <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
-            Administration & Support
-          </span>
-        </div>
-        <h2 className="mt-4 font-serif text-3xl tracking-tight md:text-5xl">
-          The people who keep things running.
-        </h2>
-
-        <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-3 md:mt-12">
-          {staff.map((m) => (
-            <PersonCard key={m.name} m={m} compact />
           ))}
         </div>
       </Section>
