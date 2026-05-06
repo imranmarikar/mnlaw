@@ -18,7 +18,7 @@ const AREA_SERVED = [
 ];
 
 export const Route = createFileRoute("/practice/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { area: PracticeArea } => {
     const area = getPracticeArea(params.slug);
     if (!area) throw notFound();
     return { area };
