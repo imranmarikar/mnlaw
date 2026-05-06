@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowRight, Check } from "lucide-react";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { PageHero } from "@/components/site/PageHero";
-import { getPracticeArea, practiceAreas } from "@/lib/practice-areas";
+import { getPracticeArea, practiceAreas, type PracticeArea } from "@/lib/practice-areas";
 
 const AREA_SERVED = [
   { "@type": "Country", name: "Sri Lanka" },
