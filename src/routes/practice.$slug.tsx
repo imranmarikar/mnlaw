@@ -90,7 +90,7 @@ export const Route = createFileRoute("/practice/$slug")({
 });
 
 function PracticeDetail() {
-  const { area } = Route.useLoaderData();
+  const { area } = Route.useLoaderData() as { area: PracticeArea };
   const idx = practiceAreas.findIndex((p) => p.slug === area.slug);
   const next = practiceAreas[(idx + 1) % practiceAreas.length];
 
