@@ -97,6 +97,13 @@ export const Route = createRootRoute({
       { name: "author", content: "MN Law Chambers" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "MN Law Chambers — Counsel for consequential matters in Sri Lanka" },
+      { name: "twitter:title", content: "MN Law Chambers — Counsel for consequential matters in Sri Lanka" },
+      { name: "description", content: "Chambers Reimagined is a modern, visually engaging website for MN Law Chambers." },
+      { property: "og:description", content: "Chambers Reimagined is a modern, visually engaging website for MN Law Chambers." },
+      { name: "twitter:description", content: "Chambers Reimagined is a modern, visually engaging website for MN Law Chambers." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7ee3f29a-ec26-46a6-93d5-898f2c15e5c2/id-preview-cc2a3484--64593fd5-99ba-403d-9bb2-adb417e0ef1b.lovable.app-1777896845569.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7ee3f29a-ec26-46a6-93d5-898f2c15e5c2/id-preview-cc2a3484--64593fd5-99ba-403d-9bb2-adb417e0ef1b.lovable.app-1777896845569.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
