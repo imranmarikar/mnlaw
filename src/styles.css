@@ -377,6 +377,15 @@
     animation: sparkle 1.8s ease-in-out infinite;
   }
 
+  @keyframes edge-spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .animate-edge-spin {
+    animation: edge-spin 2.4s linear infinite;
+    will-change: transform;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .animate-hero-zoom,
     .animate-hero-glow,

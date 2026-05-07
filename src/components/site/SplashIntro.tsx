@@ -27,9 +27,6 @@ export function SplashIntro() {
 
   const flying = phase === "fly";
 
-  // Sparkles around the logo edge
-  const sparkles = Array.from({ length: 14 });
-
   return (
     <div
       aria-hidden
@@ -117,29 +114,29 @@ export function SplashIntro() {
               }
         }
       >
-        <div className="relative h-full">
-          <img src={logo} alt="" className="h-full w-auto object-contain" />
-          {!flying &&
-            sparkles.map((_, i) => {
-              const angle = (i / sparkles.length) * Math.PI * 2;
-              const radius = 52; // % from center
-              const top = 50 + Math.sin(angle) * radius;
-              const left = 50 + Math.cos(angle) * radius;
-              const delay = (i * 0.18).toFixed(2);
-              return (
-                <span
-                  key={i}
-                  className="absolute block h-1.5 w-1.5 rounded-full bg-gold animate-sparkle"
-                  style={{
-                    top: `${top}%`,
-                    left: `${left}%`,
-                    transform: "translate(-50%, -50%)",
-                    animationDelay: `${delay}s`,
-                    boxShadow: "0 0 8px var(--gold), 0 0 16px var(--gold)",
-                  }}
-                />
-              );
-            })}
+        <div className="relative h-full aspect-square">
+          {!flying && (
+            <>
+              {/* Rotating edge light around logo */}
+              <span
+                aria-hidden
+                className="absolute -inset-3 rounded-full animate-edge-spin"
+                style={{
+                  background:
+                    "conic-gradient(from 0deg, transparent 0deg, transparent 280deg, color-mix(in oklab, var(--gold) 80%, transparent) 330deg, var(--gold) 355deg, color-mix(in oklab, var(--gold) 80%, transparent) 20deg, transparent 70deg, transparent 360deg)",
+                  WebkitMask:
+                    "radial-gradient(circle, transparent 58%, black 60%, black 70%, transparent 72%)",
+                  mask: "radial-gradient(circle, transparent 58%, black 60%, black 70%, transparent 72%)",
+                  filter: "blur(2px) drop-shadow(0 0 6px var(--gold))",
+                }}
+              />
+            </>
+          )}
+          <img
+            src={logo}
+            alt=""
+            className="relative h-full w-auto object-contain"
+          />
         </div>
       </div>
 
