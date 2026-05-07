@@ -12,11 +12,11 @@ export function SplashIntro() {
     if (typeof window === "undefined") return;
     if (sessionStorage.getItem(SEEN_KEY)) return;
     setPhase("center");
-    const t1 = setTimeout(() => setPhase("fly"), 10000);
+    const t1 = setTimeout(() => setPhase("fly"), 8000);
     const t2 = setTimeout(() => {
       setPhase("done");
       sessionStorage.setItem(SEEN_KEY, "1");
-    }, 10600);
+    }, 8500);
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
@@ -27,29 +27,149 @@ export function SplashIntro() {
 
   const flying = phase === "fly";
 
+  // Sparkles around the logo edge
+  const sparkles = Array.from({ length: 14 });
+
   return (
     <div
       aria-hidden
       className={`fixed inset-0 z-[100] pointer-events-none transition-opacity duration-500 ${
-        flying ? "opacity-0" : "opacity-100 bg-background"
+        flying ? "opacity-0" : "opacity-100"
       }`}
     >
-      <img
-        src={logo}
-        alt=""
-        className="absolute object-contain transition-all duration-500 ease-in-out"
+      {/* Background — matches site cream/brown palette */}
+      {!flying && (
+        <div className="absolute inset-0 bg-background overflow-hidden">
+          {/* Drifting gold grid */}
+          <div
+            className="absolute inset-0 opacity-[0.16] animate-grid-drift"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, var(--gold) 1px, transparent 1px), linear-gradient(to bottom, var(--gold) 1px, transparent 1px)",
+              backgroundSize: "80px 80px",
+              maskImage:
+                "radial-gradient(ellipse at 50% 50%, black 0%, transparent 70%)",
+              WebkitMaskImage:
+                "radial-gradient(ellipse at 50% 50%, black 0%, transparent 70%)",
+            }}
+          />
+          {/* Floating gold orbs */}
+          <div
+            className="absolute -left-24 top-[-10%] h-[420px] w-[420px] rounded-full blur-3xl opacity-40 animate-orb-a"
+            style={{
+              background:
+                "radial-gradient(circle at 30% 30%, var(--gold), transparent 60%)",
+            }}
+          />
+          <div
+            className="absolute right-[-8%] top-[15%] h-[360px] w-[360px] rounded-full blur-3xl opacity-30 animate-orb-b"
+            style={{
+              background:
+                "radial-gradient(circle at 60% 50%, var(--primary), transparent 65%)",
+            }}
+          />
+          <div
+            className="absolute left-[35%] bottom-[-25%] h-[480px] w-[480px] rounded-full blur-3xl opacity-25 animate-orb-c"
+            style={{
+              background:
+                "radial-gradient(circle at 50% 50%, var(--accent), transparent 60%)",
+            }}
+          />
+          {/* Pulsing concentric rings behind logo */}
+          <div
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+            style={{ width: 320, height: 320 }}
+          >
+            <span className="absolute inset-0 rounded-full border border-gold/30 animate-ring-pulse" />
+            <span className="absolute inset-0 rounded-full border border-gold/30 animate-ring-pulse-delay" />
+            <span className="absolute inset-0 rounded-full border border-gold/30 animate-ring-pulse-delay-2" />
+          </div>
+        </div>
+      )}
+
+      {/* Tagline above logo */}
+      {!flying && (
+        <div
+          className="absolute left-1/2 top-[calc(50%-9rem)] -translate-x-1/2 text-center animate-rise"
+          style={{ animationDelay: "0.2s" }}
+        >
+          <div className="flex items-center justify-center gap-3">
+            <span className="hairline-gold" />
+            <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-gold">
+              Est. 2009 · Colombo
+            </span>
+            <span className="hairline-gold" />
+          </div>
+        </div>
+      )}
+
+      {/* Logo with sparkles */}
+      <div
+        className="absolute transition-all duration-500 ease-in-out"
         style={
           flying
-            ? { top: "1.25rem", left: "1.25rem", height: "2.5rem", width: "auto" }
+            ? { top: "1.25rem", left: "1.25rem", height: "2.5rem" }
             : {
                 top: "50%",
                 left: "50%",
                 height: "10rem",
-                width: "auto",
                 transform: "translate(-50%, -50%)",
               }
         }
-      />
+      >
+        <div className="relative h-full">
+          <img src={logo} alt="" className="h-full w-auto object-contain" />
+          {!flying &&
+            sparkles.map((_, i) => {
+              const angle = (i / sparkles.length) * Math.PI * 2;
+              const radius = 52; // % from center
+              const top = 50 + Math.sin(angle) * radius;
+              const left = 50 + Math.cos(angle) * radius;
+              const delay = (i * 0.18).toFixed(2);
+              return (
+                <span
+                  key={i}
+                  className="absolute block h-1.5 w-1.5 rounded-full bg-gold animate-sparkle"
+                  style={{
+                    top: `${top}%`,
+                    left: `${left}%`,
+                    transform: "translate(-50%, -50%)",
+                    animationDelay: `${delay}s`,
+                    boxShadow: "0 0 8px var(--gold), 0 0 16px var(--gold)",
+                  }}
+                />
+              );
+            })}
+        </div>
+      </div>
+
+      {/* Tagline below logo */}
+      {!flying && (
+        <div
+          className="absolute left-1/2 top-[calc(50%+8rem)] -translate-x-1/2 max-w-md px-6 text-center animate-rise"
+          style={{ animationDelay: "0.5s" }}
+        >
+          <p className="font-serif text-xl md:text-2xl text-foreground/80 italic leading-snug">
+            Considered counsel for consequential matters.
+          </p>
+          <div className="mt-4 flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+            <span>Commercial</span>
+            <span className="text-gold">·</span>
+            <span>Civil</span>
+            <span className="text-gold">·</span>
+            <span>Real Estate</span>
+            <span className="text-gold">·</span>
+            <span>Finance</span>
+          </div>
+        </div>
+      )}
+
+      {/* Bottom loading bar */}
+      {!flying && (
+        <div className="absolute left-0 right-0 bottom-0 h-px overflow-hidden">
+          <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-gold to-transparent animate-hero-shimmer" />
+        </div>
+      )}
     </div>
   );
 }

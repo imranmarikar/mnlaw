@@ -369,6 +369,14 @@
   }
   .animate-caret { animation: caret-blink 1.1s steps(2) infinite; }
 
+  @keyframes sparkle {
+    0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.4); }
+    50%      { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+  }
+  .animate-sparkle {
+    animation: sparkle 1.8s ease-in-out infinite;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .animate-hero-zoom,
     .animate-hero-glow,
