@@ -27,9 +27,6 @@ export function SplashIntro() {
 
   const flying = phase === "fly";
 
-  // Sparkles around the logo edge
-  const sparkles = Array.from({ length: 14 });
-
   return (
     <div
       aria-hidden
