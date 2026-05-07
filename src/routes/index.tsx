@@ -14,6 +14,7 @@ import {
 import { Section } from "@/components/site/Section";
 import { StatsPanel } from "@/components/site/StatsPanel";
 import { PracticeGrid } from "@/components/site/PracticeGrid";
+import { SplashIntro } from "@/components/site/SplashIntro";
 import { useReveal } from "@/hooks/use-reveal";
 import heroImage from "@/assets/hero-courthouse.jpg";
 import libraryImage from "@/assets/hero-library.jpg";
@@ -75,6 +76,7 @@ function HomePage() {
 
   return (
     <>
+      <SplashIntro />
       {/* ============ HERO — dark cinematic ============ */}
       <section className="relative isolate overflow-hidden bg-ink text-ink-foreground">
         {/* Background photo */}
