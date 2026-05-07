@@ -5,24 +5,24 @@ const SEEN_KEY = "mn-splash-seen";
 
 export function SplashIntro() {
   const [phase, setPhase] = useState<"hidden" | "center" | "fly" | "done">(
-    () => {
-      if (typeof window === "undefined") return "center";
-      return sessionStorage.getItem(SEEN_KEY) ? "done" : "center";
-    },
+    "center",
   );
 
   useEffect(() => {
-    if (phase !== "center") return;
-    const t1 = setTimeout(() => setPhase("fly"), 8000);
+    if (typeof window !== "undefined" && sessionStorage.getItem(SEEN_KEY)) {
+      setPhase("done");
+      return;
+    }
+    const t1 = setTimeout(() => setPhase("fly"), 5000);
     const t2 = setTimeout(() => {
       setPhase("done");
       sessionStorage.setItem(SEEN_KEY, "1");
-    }, 8500);
+    }, 5500);
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
     };
-  }, [phase]);
+  }, []);
 
   if (phase === "hidden" || phase === "done") return null;
 
