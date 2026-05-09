@@ -386,6 +386,15 @@
     will-change: transform;
   }
 
+  @keyframes scroll-cue {
+    0%   { transform: translateY(-100%); }
+    100% { transform: translateY(200%); }
+  }
+  .animate-scroll-cue {
+    animation: scroll-cue 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .animate-hero-zoom,
     .animate-hero-glow,

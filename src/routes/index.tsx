@@ -429,7 +429,7 @@ function HomePage() {
 
 
       {/* ============ QUOTE ============ */}
-      <Section className="bg-secondary/40">
+      <Section className="bg-secondary/40 reveal">
         <div className="mx-auto max-w-4xl text-center">
           <Quote className="mx-auto h-10 w-10 text-gold" />
           <blockquote className="mt-6 font-serif text-3xl italic leading-snug text-foreground text-balance md:text-5xl">
@@ -443,7 +443,7 @@ function HomePage() {
       </Section>
 
       {/* ============ FIRM TEASER ============ */}
-      <Section>
+      <Section className="reveal">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="overflow-hidden rounded-2xl ring-1 ring-border lg:col-span-6">
             <img
@@ -492,7 +492,7 @@ function HomePage() {
       </Section>
 
       {/* ============ CONTACT STRIP ============ */}
-      <Section className="pt-0">
+      <Section className="pt-0 reveal">
         <div className="overflow-hidden rounded-2xl border border-border bg-card">
           <div className="grid lg:grid-cols-12">
             <div className="relative lg:col-span-5">
