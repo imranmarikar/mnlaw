@@ -16,6 +16,7 @@ import { StatsPanel } from "@/components/site/StatsPanel";
 import { PracticeGrid } from "@/components/site/PracticeGrid";
 import { SplashIntro } from "@/components/site/SplashIntro";
 import { useReveal } from "@/hooks/use-reveal";
+import { useParallax } from "@/hooks/use-parallax";
 import heroImage from "@/assets/hero-courthouse.jpg";
 import libraryImage from "@/assets/hero-library.jpg";
 import aboutImage from "@/assets/about-lawbook.jpg";
