@@ -16,6 +16,7 @@ import { StatsPanel } from "@/components/site/StatsPanel";
 import { PracticeGrid } from "@/components/site/PracticeGrid";
 import { SplashIntro } from "@/components/site/SplashIntro";
 import { useReveal } from "@/hooks/use-reveal";
+import { useParallax } from "@/hooks/use-parallax";
 import heroImage from "@/assets/hero-courthouse.jpg";
 import libraryImage from "@/assets/hero-library.jpg";
 import aboutImage from "@/assets/about-lawbook.jpg";
@@ -73,180 +74,195 @@ const audiences = [
 
 function HomePage() {
   useReveal();
+  useParallax();
 
   return (
     <>
       <SplashIntro />
-      {/* ============ HERO — dark cinematic ============ */}
-      <section className="relative isolate overflow-hidden bg-ink text-ink-foreground">
-        {/* Background photo */}
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src={libraryImage}
-            alt="Warmly lit antique law library with leather-bound books"
-            width={1536}
-            height={1536}
-            className="absolute inset-0 h-full w-full object-cover opacity-35 animate-hero-zoom"
-          />
-        </div>
-
-        {/* Ink gradient wash */}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/92 to-ink/45" />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/30 via-transparent to-ink/70" />
-
-        {/* Drifting grid overlay */}
+      {/* ============ HERO — centered spotlight + parallax collage ============ */}
+      <section className="relative isolate overflow-hidden bg-ink text-ink-foreground min-h-[92vh] flex items-center">
+        {/* Spotlight wash */}
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.18] animate-grid-drift mix-blend-overlay"
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 55% at 50% 45%, color-mix(in oklab, var(--gold) 18%, transparent) 0%, transparent 60%), radial-gradient(ellipse 80% 70% at 50% 100%, color-mix(in oklab, var(--ink) 90%, black) 0%, transparent 70%)",
+          }}
+        />
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-ink/40 via-transparent to-ink" />
+
+        {/* Drifting grid (slow parallax) */}
+        <div
+          aria-hidden
+          data-parallax="0.15"
+          className="pointer-events-none absolute inset-0 opacity-[0.16] animate-grid-drift mix-blend-overlay"
           style={{
             backgroundImage:
               "linear-gradient(color-mix(in oklab, var(--gold) 35%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--gold) 35%, transparent) 1px, transparent 1px)",
             backgroundSize: "80px 80px",
             maskImage:
-              "radial-gradient(ellipse at 70% 40%, black 0%, transparent 70%)",
+              "radial-gradient(ellipse at 50% 50%, black 0%, transparent 70%)",
           }}
         />
 
-        {/* Floating gold orbs */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {/* Floating image collage — parallax */}
+        <div className="pointer-events-none absolute inset-0">
+          {/* Top-left card */}
           <div
-            className="absolute -top-32 -left-24 h-[420px] w-[420px] rounded-full opacity-50 blur-3xl animate-orb-a"
-            style={{
-              background:
-                "radial-gradient(circle, color-mix(in oklab, var(--gold) 55%, transparent) 0%, transparent 65%)",
-            }}
-          />
+            data-parallax="0.35"
+            className="absolute left-[4%] top-[12%] hidden w-[18vw] max-w-[260px] rotate-[-6deg] overflow-hidden rounded-2xl ring-1 ring-gold/20 shadow-2xl md:block"
+          >
+            <img
+              src={libraryImage}
+              alt=""
+              className="h-full w-full object-cover opacity-80"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent" />
+          </div>
+          {/* Top-right card */}
           <div
-            className="absolute top-1/3 right-[-120px] h-[520px] w-[520px] rounded-full opacity-45 blur-3xl animate-orb-b"
-            style={{
-              background:
-                "radial-gradient(circle, color-mix(in oklab, var(--primary) 70%, transparent) 0%, transparent 65%)",
-            }}
-          />
+            data-parallax="0.5"
+            className="absolute right-[5%] top-[8%] hidden w-[16vw] max-w-[230px] rotate-[5deg] overflow-hidden rounded-2xl ring-1 ring-gold/20 shadow-2xl md:block"
+          >
+            <img
+              src={officeImage}
+              alt=""
+              className="h-full w-full object-cover opacity-75"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent" />
+          </div>
+          {/* Bottom-left card */}
           <div
-            className="absolute bottom-[-180px] left-1/3 h-[380px] w-[380px] rounded-full opacity-35 blur-3xl animate-orb-c"
-            style={{
-              background:
-                "radial-gradient(circle, color-mix(in oklab, var(--gold) 45%, transparent) 0%, transparent 65%)",
-            }}
-          />
-        </div>
-
-        {/* Pulsing rings — subtle "scales" pulse on the right */}
-        <div className="pointer-events-none absolute right-[8%] top-1/2 hidden -translate-y-1/2 lg:block">
-          <div className="relative h-[360px] w-[360px]">
-            {[0, 1, 2].map((i) => (
-              <div
-                key={i}
-                className={`absolute inset-0 rounded-full border border-gold/40 ${
-                  i === 0
-                    ? "animate-ring-pulse"
-                    : i === 1
-                      ? "animate-ring-pulse-delay"
-                      : "animate-ring-pulse-delay-2"
-                }`}
-              />
-            ))}
-            <div className="absolute inset-[35%] rounded-full bg-gold/20 blur-2xl" />
+            data-parallax="0.25"
+            className="absolute left-[8%] bottom-[10%] hidden w-[15vw] max-w-[210px] rotate-[4deg] overflow-hidden rounded-2xl ring-1 ring-gold/20 shadow-2xl lg:block"
+          >
+            <img
+              src={aboutImage}
+              alt=""
+              className="h-full w-full object-cover opacity-75"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent" />
+          </div>
+          {/* Bottom-right card */}
+          <div
+            data-parallax="0.45"
+            className="absolute right-[7%] bottom-[14%] hidden w-[17vw] max-w-[240px] rotate-[-7deg] overflow-hidden rounded-2xl ring-1 ring-gold/20 shadow-2xl lg:block"
+          >
+            <img
+              src={heroImage}
+              alt=""
+              className="h-full w-full object-cover opacity-80"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent" />
           </div>
         </div>
 
-        {/* Slow shimmer sweep */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {/* Floating gold orbs */}
+        <div className="pointer-events-none absolute inset-0">
           <div
-            className="absolute -inset-y-10 -left-1/3 w-1/3 animate-hero-shimmer"
+            data-parallax="0.2"
+            className="absolute left-1/2 top-1/2 h-[640px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-50 blur-3xl animate-orb-a"
             style={{
               background:
-                "linear-gradient(115deg, transparent 0%, color-mix(in oklab, var(--gold) 14%, transparent) 50%, transparent 100%)",
+                "radial-gradient(circle, color-mix(in oklab, var(--gold) 35%, transparent) 0%, transparent 65%)",
             }}
           />
         </div>
+
         {/* Top loading bar */}
         <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[2px] overflow-hidden">
           <div className="h-full w-1/3 animate-hero-loadbar bg-gradient-to-r from-transparent via-gold to-transparent" />
         </div>
 
-        <div className="container relative mx-auto px-5 pb-14 pt-12 md:px-6 md:pb-20 md:pt-20 lg:px-10 lg:pb-24 lg:pt-24">
-          <div className="grid gap-10 lg:grid-cols-12">
-            <div className="lg:col-span-8">
-              <div className="flex items-center gap-3 animate-rise" style={{ animationDelay: "0.1s", animationFillMode: "both" }}>
-                <span className="hairline-gold" />
-                <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-gold">
-                  Colombo · Sri Lanka · Est. 2009
-                </span>
-                <span className="ml-1 inline-block h-3 w-[2px] bg-gold animate-caret" />
-              </div>
-
-              <h1 className="mt-7 font-serif text-[2.25rem] leading-[1.05] tracking-tight text-ink-foreground text-balance sm:text-5xl md:text-6xl lg:text-[5.5rem] animate-rise" style={{ animationDelay: "0.25s", animationFillMode: "both" }}>
-                Considered counsel for{" "}
-                <span className="relative inline-block italic text-gold">
-                  consequential
-                  <span className="absolute -bottom-1 left-0 h-[3px] w-full origin-left bg-gold/70 animate-accent-underline" />
-                </span>{" "}
-                matters.
-              </h1>
-
-              <p className="mt-7 max-w-[58ch] text-base leading-relaxed text-ink-foreground/75 md:text-lg animate-rise" style={{ animationDelay: "0.45s", animationFillMode: "both" }}>
-                A Sri Lankan law firm advising founders, families, investors and
-                institutions — with the clarity that comes from caring about the
-                outcome. Fifteen years of partner-led work in commercial, civil,
-                real estate, finance, and immigration law.
-              </p>
-
-              <div className="mt-10 flex flex-wrap items-center gap-3 animate-rise" style={{ animationDelay: "0.6s", animationFillMode: "both" }}>
-                <Link
-                  to="/contact"
-                  className="group inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-ink transition-all hover:brightness-110"
-                >
-                  Book a consultation
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </Link>
-                <Link
-                  to="/practice"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-sm font-medium text-ink-foreground transition-colors hover:border-gold hover:text-gold"
-                >
-                  Explore practice areas
-                  <ArrowUpRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Right: credential rail */}
-            <div className="lg:col-span-4 lg:self-end">
-              <div className="grid grid-cols-3 gap-3 lg:grid-cols-1">
-                {[
-                  { k: "15+", v: "Years practising" },
-                  { k: "5", v: "Core practice areas" },
-                  { k: "LK", v: "Jurisdiction" },
-                ].map((s, i) => (
-                  <div
-                    key={s.v}
-                    className="rounded-xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm animate-rise"
-                    style={{ animationDelay: `${0.75 + i * 0.1}s`, animationFillMode: "both" }}
-                  >
-                    <div className="font-serif text-3xl text-gold lg:text-4xl">
-                      {s.k}
-                    </div>
-                    <div className="mt-1 text-[11px] uppercase tracking-[0.2em] text-ink-foreground/60">
-                      {s.v}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+        {/* Centered content */}
+        <div
+          data-parallax="-0.08"
+          className="container relative mx-auto px-5 text-center md:px-6 lg:px-10"
+        >
+          <div
+            className="mx-auto inline-flex items-center gap-3 animate-rise"
+            style={{ animationDelay: "0.1s", animationFillMode: "both" }}
+          >
+            <span className="hairline-gold" />
+            <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-gold">
+              Colombo · Sri Lanka · Est. 2009
+            </span>
+            <span className="hairline-gold" />
           </div>
-        </div>
 
-        {/* Bottom strip inside hero */}
-        <div className="relative border-t border-white/10 bg-ink/80 backdrop-blur">
-          <div className="container mx-auto flex flex-wrap items-center justify-between gap-4 px-6 py-4 text-[11px] uppercase tracking-[0.22em] text-ink-foreground/60 lg:px-10">
-            <span>Trusted by founders · family offices · banks · boards · investors</span>
+          <h1
+            className="mx-auto mt-8 max-w-5xl font-serif text-[2.5rem] leading-[1.02] tracking-tight text-ink-foreground text-balance sm:text-6xl md:text-7xl lg:text-[6.5rem] animate-rise"
+            style={{ animationDelay: "0.25s", animationFillMode: "both" }}
+          >
+            Considered counsel for{" "}
+            <span className="relative inline-block italic text-gold">
+              consequential
+              <span className="absolute -bottom-1 left-0 h-[3px] w-full origin-left bg-gold/70 animate-accent-underline" />
+            </span>{" "}
+            matters.
+          </h1>
+
+          <p
+            className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-ink-foreground/75 md:text-lg animate-rise"
+            style={{ animationDelay: "0.45s", animationFillMode: "both" }}
+          >
+            A Sri Lankan law firm advising founders, families, investors and
+            institutions — with the clarity that comes from caring about the
+            outcome.
+          </p>
+
+          <div
+            className="mt-10 flex flex-wrap items-center justify-center gap-3 animate-rise"
+            style={{ animationDelay: "0.6s", animationFillMode: "both" }}
+          >
             <Link
-              to="/team"
-              className="inline-flex items-center gap-1.5 text-gold hover:brightness-125"
+              to="/contact"
+              className="group inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-ink transition-all hover:brightness-110"
             >
-              Meet the team
-              <ArrowUpRight className="h-3.5 w-3.5" />
+              Book a consultation
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
+            <Link
+              to="/practice"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-sm font-medium text-ink-foreground transition-colors hover:border-gold hover:text-gold"
+            >
+              Explore practice areas
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          {/* Credential chips */}
+          <div
+            className="mx-auto mt-14 flex flex-wrap items-center justify-center gap-2.5 animate-rise"
+            style={{ animationDelay: "0.8s", animationFillMode: "both" }}
+          >
+            {[
+              "15+ years practising",
+              "5 core practice areas",
+              "Sri Lankan jurisdiction",
+              "Partner-led",
+            ].map((s) => (
+              <span
+                key={s}
+                className="rounded-full border border-white/15 bg-white/[0.04] px-4 py-1.5 text-[11px] uppercase tracking-[0.2em] text-ink-foreground/70 backdrop-blur-sm"
+              >
+                {s}
+              </span>
+            ))}
+          </div>
+
+          {/* Scroll indicator */}
+          <div
+            className="mt-16 flex flex-col items-center gap-2 animate-rise"
+            style={{ animationDelay: "1s", animationFillMode: "both" }}
+          >
+            <span className="text-[10px] uppercase tracking-[0.3em] text-ink-foreground/50">
+              Scroll
+            </span>
+            <span className="relative flex h-10 w-[2px] overflow-hidden bg-white/15">
+              <span className="absolute inset-x-0 top-0 h-1/2 animate-scroll-cue bg-gold" />
+            </span>
           </div>
         </div>
       </section>
@@ -413,7 +429,7 @@ function HomePage() {
 
 
       {/* ============ QUOTE ============ */}
-      <Section className="bg-secondary/40">
+      <Section className="bg-secondary/40 reveal">
         <div className="mx-auto max-w-4xl text-center">
           <Quote className="mx-auto h-10 w-10 text-gold" />
           <blockquote className="mt-6 font-serif text-3xl italic leading-snug text-foreground text-balance md:text-5xl">
@@ -427,7 +443,7 @@ function HomePage() {
       </Section>
 
       {/* ============ FIRM TEASER ============ */}
-      <Section>
+      <Section className="reveal">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="overflow-hidden rounded-2xl ring-1 ring-border lg:col-span-6">
             <img
@@ -476,7 +492,7 @@ function HomePage() {
       </Section>
 
       {/* ============ CONTACT STRIP ============ */}
-      <Section className="pt-0">
+      <Section className="pt-0 reveal">
         <div className="overflow-hidden rounded-2xl border border-border bg-card">
           <div className="grid lg:grid-cols-12">
             <div className="relative lg:col-span-5">
